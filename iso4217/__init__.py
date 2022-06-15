@@ -4,7 +4,9 @@ from typing import Any
 
 import ijson
 
-DATAHUB_CURRENCY_RESOURCE_PATH = pathlib.Path(__file__).resolve().parent / "data" / "currencies.json"
+DATAHUB_CURRENCY_RESOURCE_PATH = (
+    pathlib.Path(__file__).resolve().parent / "data" / "currencies.json"
+)
 
 
 class CurrencyNotFoundError(Exception):
@@ -13,13 +15,13 @@ class CurrencyNotFoundError(Exception):
 
 class DatahubCurrency:
     def __init__(
-            self,
-            alphabetical_code,
-            currency_name,
-            entity,
-            decimal_places,
-            numeric_code,
-            withdrawal_date
+        self,
+        alphabetical_code,
+        currency_name,
+        entity,
+        decimal_places,
+        numeric_code,
+        withdrawal_date,
     ):
         self.withdrawal_date = withdrawal_date
         self.numeric_code = numeric_code
@@ -36,7 +38,7 @@ class DatahubCurrency:
             entity=d["Entity"],
             decimal_places=d["MinorUnit"],
             numeric_code=d["NumericCode"],
-            withdrawal_date=d["WithdrawalDate"]
+            withdrawal_date=d["WithdrawalDate"],
         )
 
 
@@ -52,5 +54,5 @@ def find_currency(**filters: Any):
 
 def iter_currency():
     with open(DATAHUB_CURRENCY_RESOURCE_PATH, "r") as f:
-        for currency_dict in ijson.items(f, 'item', use_float=True):
+        for currency_dict in ijson.items(f, "item", use_float=True):
             yield DatahubCurrency.from_dict(currency_dict)
