@@ -19,11 +19,11 @@ jobs:
 
       - name: Commit and push changes
         run: |
-          git config --global user.name "GLEF1X"
-          git config --global user.email "glebgar567@gmail.com"
-          git add -A
-          git commit -m "Update currency db"
-          git push origin master
+          - git config --global user.name "GLEF1X"
+          - git config --global user.email "glebgar567@gmail.com"
+          - git add -A
+          - git commit -m "Update currency db"
+          - git push origin master
 
   build:
     name: Build
@@ -39,10 +39,22 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -U pip virtualenv poetry
+          poetry install 
           poetry config virtualenvs.create false
+
       - name: Build
         run: |
           poetry build
+
+      - name: Bump version
+        run: |
+          - poetry-dynamic-versioning
+          - git config --global user.name "GLEF1X"
+          - git config --global user.email "glebgar567@gmail.com"
+          - git add -A
+          - git commit -m "bump version"
+          - git push origin master
+
       - name: Try install wheel
         run: |
           mkdir -p try_install
