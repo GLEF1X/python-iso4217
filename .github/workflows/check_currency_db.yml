@@ -12,11 +12,11 @@ jobs:
       - uses: actions/checkout@master
         name: checkout repo
 
-      - name: Check json file db hash
+      - name: Check if currencies data was updated
         continue-on-error: false
         run: |
-          chmod +x ./scripts/compare_hashes.sh 
-          ./scripts/compare_hashes.sh
+          chmod +x ./scripts/compare_currency_data.sh 
+          ./scripts/compare_currency_data.sh
         shell: bash
 
       - name: Commit and push changes
@@ -86,8 +86,3 @@ jobs:
         with:
           user: __token__
           password: ${{ secrets.PYPI_TOKEN }}
-
-      
-      
-
-
