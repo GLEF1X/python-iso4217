@@ -5,9 +5,9 @@ description = ""
 authors = ["GLEF1X <glebgar567@gmail.com>"]
 
 packages = [
-    { include = "iso4217" },
-    { include = "iso4217/**/*.py" },
-    { include = "iso4217/**/*.pyi" },
+    { include = "./iso4217" },
+    { include = "./iso4217/**/*.py" },
+    { include = "./iso4217/**/*.pyi" },
 ]
 
 [tool.poetry.dependencies]
