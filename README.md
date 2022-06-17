@@ -23,7 +23,7 @@ poetry add python-iso4217
 ## Usage
 
 ```python
-from iso4217 import get_currency, iter_currency
+from iso4217 import find_currency, iter_currency
 
 # Filters that could be applied:
 #   * currency_name
@@ -35,10 +35,10 @@ from iso4217 import get_currency, iter_currency
 # The filters correspond to attributes of `Currency` class
 
 # accept arbitrary filters as key/value pairs
-currency = get_currency(currency_name="usd")
+currency = find_currency(currency_name="usd")
 
 # if currency was not found, the lib will immediately raise CurrencyNotFoundError
-defunct_currency = get_currency(currency_name="abc123")
+defunct_currency = find_currency(currency_name="abc123")
 
 # You need generator to lazy iter currencies? Ok
 
