@@ -27,10 +27,6 @@ jobs:
           pip install --no-cache-dir -U pip virtualenv poetry bump2version
           poetry config virtualenvs.create false
 
-      - name: Build
-        run: |
-          poetry build -n -vvv
-
       - name: Bump version
         run: |
           set -x
@@ -46,12 +42,16 @@ jobs:
           branch: ${{ github.ref }}
           tags: true
 
+      - name: Build
+        run: |
+          poetry build -n -vvv
+
       - name: Try install wheel
         run: |
           mkdir -p try_install
           cd try_install
           virtualenv venv
-          venv/bin/pip install ../dist/iso4217-*.whl
+          venv/bin/pip install ../dist/python_iso4217-*.whl
 
       - name: Publish artifacts
         uses: actions/upload-artifact@master
