@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "python-iso4217"
-version = "0.0.1"
+version = "0.0.0"
 description = ""
 authors = ["GLEF1X <glebgar567@gmail.com>"]
 
