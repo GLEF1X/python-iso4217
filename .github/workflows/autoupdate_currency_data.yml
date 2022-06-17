@@ -1,0 +1,34 @@
+name: 'Autoupdate currency data'
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 * */12 * *'
+
+jobs:
+  compare-currency-data:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3
+        name: checkout repo
+
+      - name: Check if currencies' data was updated
+        continue-on-error: false
+        run: |
+          chmod +x ./.github/scripts/compare_currency_data.sh 
+          ./.github/scripts/compare_currency_data.sh
+        shell: bash
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "GLEF1X"
+          git config --global user.email "glebgar567@gmail.com"
+          git add -A
+          git commit -m "Update currency db"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
