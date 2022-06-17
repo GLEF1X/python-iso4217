@@ -25,7 +25,7 @@ jobs:
           git config --global user.name "GLEF1X"
           git config --global user.email "glebgar567@gmail.com"
           git add -A
-          git commit -m "Update currency db"
+          git commit -m "Update currency data from original source"
 
       - name: Push changes
         uses: ad-m/github-push-action@master

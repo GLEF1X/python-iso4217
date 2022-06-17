@@ -1,8 +1,13 @@
 [tool.poetry]
 name = "python-iso4217"
+description = "Lightweight ISO 4217 currency package"
 version = "0.0.0"
-description = ""
 authors = ["GLEF1X <glebgar567@gmail.com>"]
+maintainers = [
+    "GLEF1X <glebgar567@gmail.com>",
+]
+repository = "https://github.com/GLEF1X/python-iso4217"
+readme = 'README.md'
 
 packages = [
     { include = "./iso4217" },
