@@ -61,7 +61,7 @@ from pydantic import BaseModel, root_validator, StrictInt
 class Currency(BaseModel, _Currency):
     __root__: StrictInt
 
-    @root_validator(pre=False, skip_on_failure=True)
+    @root_validator(skip_on_failure=True)
     def humanize(cls, values):
         currency_numeric_code: int = values.get("__root__")
         # inspect.getfullargspec(_Currency.__init__) will contain `self`, so we cut it off
