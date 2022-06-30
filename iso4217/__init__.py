@@ -37,7 +37,7 @@ class Currency:
             numeric_code = int(numeric_code)
 
         decimal_places = d["MinorUnit"]
-        if decimal_places is not None:
+        if isinstance(decimal_places, str) and decimal_places.isdigit():
             decimal_places = int(decimal_places)
 
         return cls(
