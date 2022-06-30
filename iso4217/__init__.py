@@ -36,11 +36,15 @@ class Currency:
         if numeric_code is not None:
             numeric_code = int(numeric_code)
 
+        decimal_places = d["MinorUnit"]
+        if decimal_places is not None:
+            decimal_places = int(decimal_places)
+
         return cls(
             alphabetical_code=d["AlphabeticCode"],
             currency_name=d["Currency"],
             entity=d["Entity"],
-            decimal_places=d["MinorUnit"],
+            decimal_places=decimal_places,
             numeric_code=numeric_code,
             withdrawal_date=d["WithdrawalDate"],
         )
