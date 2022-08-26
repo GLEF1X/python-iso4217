@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "python-iso4217"
 description = "Lightweight ISO 4217 currency package"
-version = "0.0.3"
+version = "0.0.4"
 authors = ["GLEF1X <glebgar567@gmail.com>"]
 maintainers = [
     "GLEF1X <glebgar567@gmail.com>",
