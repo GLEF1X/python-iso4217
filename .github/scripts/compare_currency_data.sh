@@ -3,7 +3,7 @@
 # Terminate the script on command fails
 set -o nounset
 
-DATA_SOURCE="${DATA_SOURCE_URL:-https://datahub.io/core/currency-codes/r/codes-all.json}"
+DATA_SOURCE="${DATA_SOURCE_URL:-https://pkgstore.datahub.io/core/currency-codes/codes-all_json/data/029be9faf6547aba93d64384f7444774/codes-all_json.json}"
 QUERY_TIMEOUT_SECONDS="${QUERY_TIMEOUT_SECONDS:-20}"
 
 echo "Use $DATA_SOURCE to retrieve currency data"
